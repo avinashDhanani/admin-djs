@@ -1,0 +1,197 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans&family=Roboto&display=swap&family=Puritan&display=swap&family=Inter&display=swap?family=IBM+Plex+Sans&display=swap");
+
+@layer utilities {
+
+  /* Chrome, Safari and Opera */
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+
+  .no-scrollbar {
+    -ms-overflow-style: none;
+    /* IE and Edge */
+    scrollbar-width: none;
+    /* Firefox */
+  }
+
+  .scrollbar::-webkit-scrollbar {
+    width: 8px;
+    height: 20px;
+  }
+
+  .scrollbar::-webkit-scrollbar-track {
+    border-radius: 100vh;
+    background: rgba(217, 217, 217, 1);
+  }
+
+  .scrollbar::-webkit-scrollbar-thumb {
+    background: rgba(154, 152, 152, 1);
+    border-radius: 100vh;
+  }
+
+  .on {
+    color: yellow;
+  }
+
+  .off {
+    color: rgba(217, 217, 217, 1);
+  }
+
+  .sps {
+    appearance: none;
+    background-color: rgba(217, 217, 217, 1);
+    margin: 0;
+    font: inherit;
+    color: rgba(217, 217, 217, 1);
+    width: 1.15em;
+    height: 1.15em;
+    border: 5px solid rgba(217, 217, 217, 1);
+    border-radius: 0.15em;
+    transform: translateY(-0.075em);
+    display: grid;
+    place-content: center;
+    position: absolute;
+  }
+
+  .sps::before {
+    content: "";
+    width: 0.70em;
+    height: 0.70em;
+    transform: scale(0);
+    transition: 120ms transform ease-in-out;
+    box-shadow: inset 1em 1em rgba(252, 41, 41, 1);
+    border-radius: 2px
+  }
+
+  .sps:checked::before {
+    transform: scale(1);
+  }
+
+  .rating_checkbox {
+    appearance: none;
+    background-color: rgba(217, 217, 217, 1);
+    margin: 0;
+    font: inherit;
+    color: rgba(217, 217, 217, 1);
+    width: 1.15em;
+    height: 1.15em;
+    border: 5px solid rgba(217, 217, 217, 1);
+    border-radius: 0.15em;
+    transform: translateY(-0.075em);
+    display: grid;
+    place-content: center;
+    position: absolute;
+  }
+
+  .rating_checkbox::before {
+    content: "";
+    width: 1.15em;
+    height: 1.15em;
+    transform: scale(0);
+    transition: 120ms transform ease-in-out;
+    box-shadow: inset 1em 1em rgba(233, 93, 63, 1);
+    border-radius: 5px;
+  }
+
+  .rating_checkbox:checked::before {
+    transform: scale(1);
+  }
+
+  /* remove type number default arrows */
+  /* Chrome, Safari, Edge, Opera */
+  .arrows_disabled::-webkit-outer-spin-button,
+  .arrows_disabled::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+
+  /* Firefox */
+  .arrows_disabled {
+    -moz-appearance: textfield;
+  }
+}
+
+
+body {
+  margin: 0;
+  font-family: "Roboto", "Open Sans", "sans-serif", "Gill Sans";
+  font-style: normal;
+  font-size: 1rem;
+}
+
+input[type=range].styled-slider {
+  -webkit-appearance: none;
+  background: rgba(249, 221, 215, 1);
+  border-radius: 25px;
+  width: 100%;
+  border: none;
+  cursor: pointer;
+}
+
+/*progress support*/
+input[type=range].styled-slider.slider-progress {
+  --range: calc(var(--max) - var(--min));
+  --ratio: calc((var(--value) - var(--min)) / var(--range));
+  --sx: calc(0.5 * 2em + var(--ratio) * (100% - 2em));
+}
+
+input[type=range].styled-slider:focus {
+  outline: none;
+}
+
+/*webkit*/
+input[type=range].styled-slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  width: 1.7em;
+  height: 1.7em;
+  border-radius: 1em;
+  background: white;
+  border: 2px solid rgba(255, 61, 20, 0.7);
+  margin-top: -5px;
+  /* margin-top: calc(1em * 0.5 - max(2em * 0.5, 2px)); */
+}
+
+input[type=range].styled-slider::-webkit-slider-runnable-track {
+  height: 1em;
+  border: none;
+  border-radius: 0.5em;
+  background: rgba(249, 221, 215, 1);
+  box-shadow: none;
+}
+
+input[type=range].styled-slider.slider-progress::-webkit-slider-runnable-track {
+  background: linear-gradient(rgba(255, 61, 20, 0.7), rgba(255, 61, 20, 0.7)) 0/var(--sx) 100% no-repeat, rgba(249, 221, 215, 1);
+}
+
+/* All the same stuff for Firefox */
+input[type=range]::-moz-range-thumb {
+  background-color: white;
+  border: 2px solid rgba(255, 61, 20, 0.7);
+  width: 1.5rem;
+  height: 1.5rem;
+  border-radius: 25px;
+  cursor: pointer;
+}
+
+input[type=range]::-moz-range-track {
+  width: 100%;
+  height: 1rem;
+  border: none;
+  cursor: pointer;
+  background: rgba(249, 221, 215, 1);
+  border-radius: 25px;
+}
+
+input[type="range"]::-moz-range-progress {
+  background: rgba(255, 61, 20, 0.7);
+  height: 1rem;
+  border-radius: 25px;
+}
+
+.menu-item-ui{
+  background-color: gray;
+}
+
